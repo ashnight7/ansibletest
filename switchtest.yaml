@@ -3,6 +3,8 @@
   hosts: AccessSwitch1
   gather_facts: false
   tasks:
-    - name: Print resources
-       community.routeros.command:
-         commands: /system resource print
+    - name: Run multiple commands on remote nodes
+  community.routeros.command:
+    commands:
+      - /system routerboard print
+      - /system identity print
