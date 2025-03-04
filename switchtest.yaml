@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: details
-      - community.routeros.command:
+      community.routeros.command:
     commands:
       - /ip
       - print
