@@ -1,4 +1,3 @@
----
 - name: Basic Mikrotik Switch Configuration
   hosts: all  # Replace with your Mikrotik group from inventory
   gather_facts: false        # Mikrotik modules don't typically use facts
