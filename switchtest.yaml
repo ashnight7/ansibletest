@@ -1,9 +1,8 @@
 ---
-- name: RouterOS test with network_cli connection
-  hosts: all
-  connection: network_cli
+- name: Mineski Prod Switch Configuration 2024 V1
+  hosts: AccessSwitch1
   gather_facts: false
   tasks:
-   - name: Run command on remote devices
-  community.routeros.command:
-    commands: /system routerboard print
+    - name: hostname
+      community.routeros.command:
+        commands: /system resource print
