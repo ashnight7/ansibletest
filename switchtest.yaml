@@ -3,6 +3,6 @@
   hosts: AccessSwitch1
   gather_facts: false
   tasks:
-    - name: hostname
-      community.routeros.command:
-        commands: /system resource print
+    - name: Print resources
+       community.routeros.command:
+         commands: /system resource print
