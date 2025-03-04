@@ -1,9 +1,70 @@
 ---
-- name: Mineski Prod Switch Configuration
-  hosts: StageAccessSwitch
-  gather_facts: false
+- name: Basic Mikrotik Switch Configuration
+  hosts: mikrotik_switches  # Replace with your Mikrotik group from inventory
+  gather_facts: false        # Mikrotik modules don't typically use facts
+  connection: network_cli    # Use network_cli for Mikrotik
+
   tasks:
-    - name: Add Bridge-Trunk
-      community.routeros.command:
-        commands:
-          - /interface bridge add name=StageBR
+    - name: Display System Identity
+      mikrotik_command:
+        commands: /system/identity/print
+      register: identity_output
+
+    - name: Display Interface List
+      mikrotik_command:
+        commands: /interface/print
+      register: interface_output
+
+    - name: Display IP Address List
+      mikrotik_command:
+        commands: /ip/address/print
+      register: ip_address_output
+
+    - name: Display Bridge List
+      mikrotik_command:
+        commands: /interface/bridge/print
+      register: bridge_output
+
+    - name: Display VLAN List
+      mikrotik_command:
+        commands: /interface/vlan/print
+      register: vlan_output
+
+    - name: Display DHCP Server List
+      mikrotik_command:
+        commands: /ip/dhcp-server/print
+      register: dhcp_output
+
+    - name: Display Firewall Filter Rules
+      mikrotik_command:
+        commands: /ip/firewall/filter/print
+      register: firewall_output
+
+    - name: Print System Identity
+      debug:
+        var: identity_output.stdout_lines
+
+    - name: Print Interface List
+      debug:
+        var: interface_output.stdout_lines
+
+    - name: Print IP Address List
+      debug:
+        var: ip_address_output.stdout_lines
+
+    - name: Print Bridge List
+      debug:
+        var: bridge_output.stdout_lines
+
+    - name: Print VLAN List
+      debug:
+        var: vlan_output.stdout_lines
+
+    - name: Print DHCP Server List
+      debug:
+        var: dhcp_output.stdout_lines
+
+    - name: Print Firewall Filter Rules
+      debug:
+        var: firewall_output.stdout_lines
+    
