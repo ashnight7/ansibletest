@@ -4,7 +4,7 @@
   gather_facts: false
   tasks:
     - name: Run multiple commands on remote nodes
-  community.routeros.command:
-    commands:
-      - /system routerboard print
-      - /system identity print
+      community.routeros.command:
+        commands:
+          - /system routerboard print
+          - /system identity print
