@@ -3,40 +3,39 @@
   hosts: mikrotik_switches  # Replace with your Mikrotik group from inventory
   gather_facts: false        # Mikrotik modules don't typically use facts
   connection: network_cli    # Use network_cli for Mikrotik
-
   tasks:
     - name: Display System Identity
-      mikrotik_command:
+      community.routeros.command:
         commands: /system/identity/print
       register: identity_output
 
     - name: Display Interface List
-      mikrotik_command:
+      community.routeros.command:
         commands: /interface/print
       register: interface_output
 
     - name: Display IP Address List
-      mikrotik_command:
+      community.routeros.command:
         commands: /ip/address/print
       register: ip_address_output
 
     - name: Display Bridge List
-      mikrotik_command:
+      community.routeros.command:
         commands: /interface/bridge/print
       register: bridge_output
 
     - name: Display VLAN List
-      mikrotik_command:
+      community.routeros.command:
         commands: /interface/vlan/print
       register: vlan_output
 
     - name: Display DHCP Server List
-      mikrotik_command:
+      community.routeros.command:
         commands: /ip/dhcp-server/print
       register: dhcp_output
 
     - name: Display Firewall Filter Rules
-      mikrotik_command:
+      community.routeros.command:
         commands: /ip/firewall/filter/print
       register: firewall_output
 
