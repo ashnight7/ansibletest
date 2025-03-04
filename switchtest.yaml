@@ -1,6 +1,6 @@
 ---
 - name: Basic Mikrotik Switch Configuration
-  hosts: AccessSwitch  # Replace with your Mikrotik group from inventory
+  hosts: all  # Replace with your Mikrotik group from inventory
   gather_facts: false        # Mikrotik modules don't typically use facts
   connection: network_cli    # Use network_cli for Mikrotik
   tasks:
