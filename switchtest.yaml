@@ -3,20 +3,8 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Add Bridge-Trunk
-      community.routeros.command:
-        commands:
-        - /interface bridge add name=StageBR
-    - name: Add Bridge Port
-      community.routeros.command:
-        commands:
-
-        - /interface bridge port add bridge=StageBR interface=ether2
-        - /interface bridge port add bridge=StageBR interface=ether3
-        - /interface bridge port add bridge=StageBR interface=ether4
-        - /interface bridge port add bridge=StageBR interface=ether5
-        - /interface bridge port add bridge=StageBR interface=ether6
-    - name: SNMP Ashnight Command
-      community.routeros.command:
-        commands:
-        - /snmp set contact=ashnight7 enabled=yes location=ashnight7 trap-community=ashnight7
+    - name: details
+      - community.routeros.command:
+    commands:
+      - /ip
+      - print
