@@ -1,6 +1,6 @@
 ---
 - name: Mineski Prod Switch Configuration
-  hosts: StageAccessSwitch
+  hosts: all
   gather_facts: false
   tasks:
     - name: Add Bridge-Trunk
