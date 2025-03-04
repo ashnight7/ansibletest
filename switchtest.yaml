@@ -1,0 +1,14 @@
+---
+- name: Mineski Prod Switch Configuration
+  hosts: StageAccessSwitch
+  gather_facts: false
+  tasks:
+    - name: Set hostname
+      community.routeros.command:
+        commands:
+          - /system identity set name="{{ inventory_hostname }}"
+    - name: Add Bridge-Trunk
+      community.routeros.command:
+        commands:
+          - /interface bridge add name=Bridge-Trunk
+          - /interface bridge add name=StageBR
